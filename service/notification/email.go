@@ -13,7 +13,7 @@ import (
 
 // SendEmail sends an email using SendGrid with retries.
 func SendEmail(toEmail, subject, body string) error {
-	from := mail.NewEmail("Moderation Service", "tryit.sourav@gmail.com")
+	from := mail.NewEmail("Moderation Service", os.Getenv("SENDGRID_FROM_EMAIL_ADDRESS"))
 	to := mail.NewEmail("User", toEmail)
 
 	message := mail.NewSingleEmail(from, subject, to, body, body)
