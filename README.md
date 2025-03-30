@@ -28,7 +28,7 @@ SendGrid API Key for Email Notifications
 - Set up the following environment variables:
 ```
 SENDGRID_API_KEY: "your-sendgrid-api-key"
-SENDGRID_FROM_EMAIL: "your-email@example.com"
+SENDGRID_FROM_EMAIL_ADDRESS: "your-email@example.com"
 ```
 - Download the Service Account JSON file from Google Cloud Console and save it inside project root directory as gcp_credentials_file.json. [Reference: https://github.com/sourav014/go-moderation-service/blob/main/gcp_credentials_file.json]
 
