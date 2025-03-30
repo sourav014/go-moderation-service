@@ -22,3 +22,8 @@ Alternatively, if you're using a newer version of Docker:
 docker compose up -d
 ```
 3.Access the application: After the setup is complete, the application will be running on port 8080.
+
+All the API Endpoints are available in the below postman collection URL
+```
+https://www.postman.com/souravprasad/content-moderation-service/collection/mip37wz/content-moderation-service?action=share&creator=15932967
+```
