@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -64,7 +63,6 @@ func getEnvAsBool(key string, defaultValue bool) bool {
 func NewConfig() *Config {
 	err := godotenv.Load()
 	if err != nil {
-		fmt.Println(err)
 		log.Fatal("Error loading .env file")
 	}
 

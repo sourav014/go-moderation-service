@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 	"time"
@@ -32,7 +31,6 @@ func (auth *AuthMiddlewareImpl) CheckUserAuthentication(ctx *gin.Context) {
 	}
 
 	authToken := strings.Split(authHeader, " ")
-	fmt.Println("authToken ", authToken)
 	if len(authToken) != 2 || authToken[0] != "Bearer" {
 		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token format"})
 		return
@@ -50,8 +48,6 @@ func (auth *AuthMiddlewareImpl) CheckUserAuthentication(ctx *gin.Context) {
 		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Token expired"})
 		return
 	}
-
-	fmt.Println(userClaims)
 
 	user, err := auth.UserReposity.FindById(userClaims.ID)
 	if err != nil || user.ID == 0 {
