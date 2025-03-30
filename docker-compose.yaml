@@ -15,8 +15,8 @@ services:
       - DB_NAME=moderation_service
       - SECRET_KEY=falkdsfjlksa
       - SENDGRID_API_KEY=fjlskfdjlsa
-      - SENDGRID_FROM_EMAIL_ADDRESS='tryit.sourav@gmail.com'
-      - GCP_CREDENTIALS_FILE='gcp_credentials_file.json'
+      - SENDGRID_FROM_EMAIL_ADDRESS=sender@gmail.com
+      - GCP_CREDENTIALS_FILE=gcp_credentials_file.json
     ports:
       - "8080:8080"
     depends_on:
