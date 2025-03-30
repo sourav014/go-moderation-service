@@ -3,6 +3,7 @@ package moderation
 import (
 	"context"
 	"log"
+	"os"
 
 	language "cloud.google.com/go/language/apiv1"
 	"cloud.google.com/go/language/apiv1/languagepb"
@@ -11,7 +12,7 @@ import (
 
 func GetContentModerationDetails(content string) (map[string]float32, error) {
 	ctx := context.Background()
-	languageServiceClient, err := language.NewRESTClient(ctx, option.WithCredentialsFile("your-json-key.json"))
+	languageServiceClient, err := language.NewRESTClient(ctx, option.WithCredentialsFile(os.Getenv("GCP_CREDENTIALS_FILE")))
 	if err != nil {
 		log.Printf("Error creating language service client: %v", err)
 		return nil, err
