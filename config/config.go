@@ -69,11 +69,8 @@ func NewConfig() *Config {
 	}
 
 	serverConfig := ServerConfig{
-		Port:         getEnvAsInt("SERVER_PORT", 8080),
-		TimeoutRead:  getEnvAsDuration("SERVER_TIMEOUT_READ", 5*time.Second),
-		TimeoutWrite: getEnvAsDuration("SERVER_TIMEOUT_WRITE", 5*time.Second),
-		TimeoutIdle:  getEnvAsDuration("SERVER_TIMEOUT_IDLE", 30*time.Second),
-		Debug:        getEnvAsBool("SERVER_DEBUG", false),
+		Port:  getEnvAsInt("SERVER_PORT", 8080),
+		Debug: getEnvAsBool("SERVER_DEBUG", false),
 	}
 
 	databaseConfig := DatabaseConfig{
