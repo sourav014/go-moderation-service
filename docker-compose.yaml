@@ -19,6 +19,8 @@ services:
       - GCP_CREDENTIALS_FILE=gcp_credentials_file.json
     ports:
       - "8080:8080"
+    volumes:
+      - ./gcp_credentials_file.json:/app/gcp_credentials_file.json
     depends_on:
       - postgres
 
