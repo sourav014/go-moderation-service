@@ -46,3 +46,6 @@ All the API Endpoints are available in the below postman collection URL
 ```
 https://www.postman.com/souravprasad/content-moderation-service/collection/mip37wz/content-moderation-service?action=share&creator=15932967
 ```
+
+# Architecture Diagram
+![Screenshot from 2025-03-31 11-11-58](https://github.com/user-attachments/assets/19556b3b-9b8a-4c6d-8bb2-44c6abb03de0)
