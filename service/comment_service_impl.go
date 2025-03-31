@@ -14,11 +14,13 @@ import (
 
 type CommentServiceImpl struct {
 	CommentRepository repository.CommentRepository
+	PostRepository    repository.PostRepository
 }
 
-func NewCommentServiceImpl(commentRepository repository.CommentRepository) CommentService {
+func NewCommentServiceImpl(commentRepository repository.CommentRepository, postRepository repository.PostRepository) CommentService {
 	return &CommentServiceImpl{
 		CommentRepository: commentRepository,
+		PostRepository:    postRepository,
 	}
 }
 
@@ -50,6 +52,15 @@ func (c *CommentServiceImpl) CreateComment(createCommentRequest dto.CreateCommen
 		Content: createCommentRequest.Content,
 		UserID:  user.ID,
 		PostID:  createCommentRequest.PostID,
+	}
+
+	post, err := c.PostRepository.FindById(uint(createCommentRequest.PostID))
+	if err != nil {
+		return dto.CreateCommentResponse{}, err
+	}
+
+	if post == nil {
+		return dto.CreateCommentResponse{}, errors.New("post doesn't exist")
 	}
 
 	moderationResults, err := moderation.GetContentModerationDetails(comment.Content)

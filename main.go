@@ -39,7 +39,7 @@ func main() {
 	postService := service.NewPostServiceImpl(*postRepository)
 	postController := controller.NewPostController(postService)
 
-	commentService := service.NewCommentServiceImpl(*commentRepository)
+	commentService := service.NewCommentServiceImpl(*commentRepository, *postRepository)
 	commentController := controller.NewCommentController(commentService)
 
 	authMiddleware := middleware.NewAuthMiddlewareImpl(*userRepository, jwtMaker)
